@@ -1,6 +1,6 @@
 # 🎓 Plataforma de Cursos Online
 
-Plataforma para vender y gestionar cursos online con **Angular 19** y **Arquitectura Híbrida**.
+Plataforma para vender y gestionar cursos online con **Angular 18** y **Arquitectura Híbrida**.
 
 ---
 
@@ -532,8 +532,8 @@ ng g pipe shared/pipes/{nombre} --skip-tests
 
 ## 📚 Tecnologías
 
-- Angular 19
-- TypeScript 5.6
+- Angular 18
+- TypeScript 5.4
 - RxJS (Observables)
 - Stripe (Pagos)
 - CSS puro
