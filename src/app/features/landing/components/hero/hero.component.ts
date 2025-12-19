@@ -15,33 +15,33 @@ export class HeroComponent {
   instructors: TooltipItem[] = [
     {
       id: 1,
-      name: "Carlos Méndez",
-      designation: "Instructor de Frontend",
-      image: "https://i.pravatar.cc/150?img=12"
+      name: "Ameth Toledo",
+      designation: "Instructor de FullStack",
+      image: "assets/ameth.png"
     },
     {
       id: 2,
-      name: "Ana García",
-      designation: "Instructora de Backend",
-      image: "https://i.pravatar.cc/150?img=5"
+      name: "Jared Torres",
+      designation: "Desarrollador Frontend && UI/UX",
+      image: "assets/jared.jpeg"
     },
     {
       id: 3,
-      name: "Luis Torres",
-      designation: "Instructor de DevOps",
-      image: "https://i.pravatar.cc/150?img=33"
+      name: "Edy Jordan",
+      designation: "Desarrollador Backend",
+      image: "assets/edy.jpeg"
     },
     {
       id: 4,
-      name: "María Rodríguez",
-      designation: "Instructora de UI/UX",
-      image: "https://i.pravatar.cc/150?img=9"
+      name: "Fabricio Perez",
+      designation: "Instructor FullStack",
+      image: "assets/fabricio.jpeg"
     },
     {
       id: 5,
-      name: "Pedro Sánchez",
-      designation: "Instructor de Bases de Datos",
-      image: "https://i.pravatar.cc/150?img=15"
+      name: "Ivan Giron",
+      designation: "Desarrollador Frontend",
+      image: "assets/ivan.jpeg"
     },
     {
       id: 6,

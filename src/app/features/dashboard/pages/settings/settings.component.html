@@ -1,0 +1,291 @@
+<div class="space-y-6 max-w-4xl mx-auto p-4">
+  <div class="mb-6">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Configuración</h1>
+    <p class="text-gray-600 dark:text-gray-400 mt-2">Personaliza tu experiencia en la plataforma</p>
+  </div>
+
+  <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+      <lucide-icon [img]="User" class="w-6 h-6"></lucide-icon>
+      Perfil
+    </h2>
+    
+    <div class="flex flex-col md:flex-row gap-6 items-start">
+      <div class="flex flex-col items-center gap-4">
+        <div class="relative">
+          <img 
+            [src]="user.profileImage" 
+            [alt]="user.name"
+            class="w-32 h-32 rounded-full object-cover border-4 border-blue-500 shadow-lg">
+          <label class="absolute bottom-0 right-0 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full cursor-pointer shadow-lg transition-colors">
+            <lucide-icon [img]="Camera" class="w-5 h-5"></lucide-icon>
+            <input type="file" accept="image/*" (change)="onImageChange($event)" class="hidden">
+          </label>
+        </div>
+        <div class="text-center">
+          <p class="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2 justify-center">
+            <lucide-icon [img]="Calendar" class="w-4 h-4"></lucide-icon>
+            Miembro desde
+          </p>
+          <p class="font-semibold text-gray-900 dark:text-white">{{ formatDate(user.joinedDate) }}</p>
+        </div>
+      </div>
+
+      <div class="flex-1 space-y-4 w-full">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nombre Completo</label>
+          <input 
+            type="text" 
+            [(ngModel)]="user.name"
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+              <lucide-icon [img]="Briefcase" class="w-4 h-4"></lucide-icon>
+              Ocupación
+            </label>
+            <input 
+              type="text" 
+              [(ngModel)]="user.occupation"
+              placeholder="Ej: Ingeniero en Software"
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Rol</label>
+            <input 
+              type="text" 
+              [(ngModel)]="user.role"
+              placeholder="Ej: Full Stack Developer"
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Biografía</label>
+          <textarea 
+            [(ngModel)]="user.bio"
+            rows="3"
+            placeholder="Cuéntanos sobre ti..."
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+      <lucide-icon [img]="Mail" class="w-6 h-6"></lucide-icon>
+      Información de Contacto
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Correo Electrónico</label>
+        <input 
+          type="email" 
+          [(ngModel)]="user.email"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Teléfono</label>
+        <input 
+          type="tel" 
+          [(ngModel)]="user.phone"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+      <lucide-icon [img]="Globe" class="w-6 h-6"></lucide-icon>
+      Redes Sociales
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Github" class="w-4 h-4"></lucide-icon>
+          GitHub
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.github"
+          placeholder="https://github.com/usuario"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Linkedin" class="w-4 h-4"></lucide-icon>
+          LinkedIn
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.linkedin"
+          placeholder="https://linkedin.com/in/usuario"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="ExternalLink" class="w-4 h-4"></lucide-icon>
+          Portafolio Web
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.portfolio"
+          placeholder="https://www.amethdev.pro"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Twitter" class="w-4 h-4"></lucide-icon>
+          X (Twitter)
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.twitter"
+          placeholder="https://twitter.com/usuario"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Facebook" class="w-4 h-4"></lucide-icon>
+          Facebook
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.facebook"
+          placeholder="https://facebook.com/usuario"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Instagram" class="w-4 h-4"></lucide-icon>
+          Instagram
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.instagram"
+          placeholder="https://instagram.com/usuario"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Youtube" class="w-4 h-4"></lucide-icon>
+          YouTube
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.youtube"
+          placeholder="https://youtube.com/@usuario"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+          <lucide-icon [img]="Video" class="w-4 h-4"></lucide-icon>
+          TikTok
+        </label>
+        <input 
+          type="url" 
+          [(ngModel)]="user.socialLinks.tiktok"
+          placeholder="https://tiktok.com/@usuario"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+      <lucide-icon [img]="Bell" class="w-6 h-6"></lucide-icon>
+      Notificaciones
+    </h2>
+    <div class="space-y-4">
+      <label class="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+        <div>
+          <span class="font-medium text-gray-900 dark:text-white block">Notificaciones por Email</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">Recibe actualizaciones en tu correo</span>
+        </div>
+        <input 
+          type="checkbox" 
+          [(ngModel)]="notifications.email"
+          class="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
+      </label>
+      
+      <label class="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+        <div>
+          <span class="font-medium text-gray-900 dark:text-white block">Notificaciones Push</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">Alertas en tiempo real</span>
+        </div>
+        <input 
+          type="checkbox" 
+          [(ngModel)]="notifications.push"
+          class="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
+      </label>
+      
+      <label class="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+        <div>
+          <span class="font-medium text-gray-900 dark:text-white block">Notificaciones por SMS</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">Mensajes de texto importantes</span>
+        </div>
+        <input 
+          type="checkbox" 
+          [(ngModel)]="notifications.sms"
+          class="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
+      </label>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+      <lucide-icon [img]="Lock" class="w-6 h-6"></lucide-icon>
+      Privacidad y Seguridad
+    </h2>
+    <div class="space-y-3">
+      <button class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center justify-between group">
+        <span class="text-gray-900 dark:text-white">Cambiar Contraseña</span>
+        <lucide-icon [img]="ExternalLink" class="w-5 h-5 text-gray-400 group-hover:translate-x-1 transition-transform"></lucide-icon>
+      </button>
+      <button class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center justify-between group">
+        <span class="text-gray-900 dark:text-white">Autenticación de Dos Factores</span>
+        <lucide-icon [img]="ExternalLink" class="w-5 h-5 text-gray-400 group-hover:translate-x-1 transition-transform"></lucide-icon>
+      </button>
+      <button class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center justify-between group">
+        <span class="text-gray-900 dark:text-white">Dispositivos Conectados</span>
+        <lucide-icon [img]="ExternalLink" class="w-5 h-5 text-gray-400 group-hover:translate-x-1 transition-transform"></lucide-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="flex gap-4">
+    <button 
+      (click)="onSave()"
+      class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-lg hover:shadow-xl">
+      Guardar Cambios
+    </button>
+    <button class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium">
+      Cancelar
+    </button>
+  </div>
+
+  <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6 border-2 border-red-200 dark:border-red-800">
+    <h2 class="text-xl font-semibold text-red-900 dark:text-red-400 mb-4 flex items-center gap-2">
+      <lucide-icon [img]="AlertTriangle" class="w-6 h-6"></lucide-icon>
+      Zona de Peligro
+    </h2>
+    <p class="text-sm text-red-800 dark:text-red-300 mb-4">
+      Una vez que elimines tu cuenta, no hay vuelta atrás. Por favor, está seguro.
+    </p>
+    <button 
+      (click)="onDeleteAccount()"
+      class="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium shadow-lg hover:shadow-xl">
+      Eliminar Cuenta Permanentemente
+    </button>
+  </div>
+</div>
