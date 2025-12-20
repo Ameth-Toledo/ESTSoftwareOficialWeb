@@ -5,7 +5,6 @@ import {
   LucideAngularModule, 
   User, 
   Mail, 
-  Phone, 
   Bell, 
   Lock, 
   AlertTriangle,
@@ -13,13 +12,6 @@ import {
   Globe,
   Briefcase,
   Calendar,
-  Github,
-  Linkedin,
-  Twitter,
-  Facebook,
-  Instagram,
-  Youtube,
-  Video,
   ExternalLink
 } from 'lucide-angular';
 
@@ -33,7 +25,6 @@ import {
 export class SettingsComponent {
   readonly User = User;
   readonly Mail = Mail;
-  readonly Phone = Phone;
   readonly Bell = Bell;
   readonly Lock = Lock;
   readonly AlertTriangle = AlertTriangle;
@@ -41,13 +32,6 @@ export class SettingsComponent {
   readonly Globe = Globe;
   readonly Briefcase = Briefcase;
   readonly Calendar = Calendar;
-  readonly Github = Github;
-  readonly Linkedin = Linkedin;
-  readonly Twitter = Twitter;
-  readonly Facebook = Facebook;
-  readonly Instagram = Instagram;
-  readonly Youtube = Youtube;
-  readonly Video = Video;
   readonly ExternalLink = ExternalLink;
 
   user = {
